@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block head %}
+<link rel='stylesheet' href='{% static "Retail_Management_System/style.css" %}'>
+{% endblock head %}
+
+{% block title %}Store | HomePage{% endblock title %}
+
+{% block content %}
+<h1>Our Products</h1>
+{% for product in products %}
+<div class='grid'>
+   <h3><a href='{% url "detail" product.pk %}'>{{product.name}}</a></h3>
+   <p>{{product.category.name}}</p>
+   <p><strong>{{product.selling_price}}</strong></p>
+   {% if product.is_available %}
+      <p class='available'> Available({{product.quantity_of_stock}}) in stock</p>
+   {% else %}
+   <p class='unavailable'>Out of stock!</p>
+   {% endif %}
+</div>
+{% empty %}
+   <p>No product available right now.</p>
+{% endfor %}
+
+
+{% endblock content %}

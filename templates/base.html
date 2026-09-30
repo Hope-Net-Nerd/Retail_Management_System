@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang='eng'>
+   <head>
+      <meta charset='UTF-8'>
+      <title>{% block title %}Store{% endblock %}</title>
+      {% block head %}
+
+      {% endblock %}
+   </head>
+   <body>
+      <header>
+         <strong>The Store</strong>
+         <nav>
+            <a href='{% url "list" %}'>Shop</a>
+            
+         </nav>
+      </header>
+      {% block content %}
+
+      {% endblock %}
+   </body>
+   
+</html>
